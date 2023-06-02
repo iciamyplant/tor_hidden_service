@@ -19,8 +19,6 @@ d’accéder grâce à un navigateur.
 architecture client/serveur = architecture centralisée, information stockée à un endroit bien précis
 architecture pair à pair = permet à n'importe quel client de devenir serveur, cad héberger des données ou renvoyer les clients vers l'hébergeur
 
-
-
 pair à pair vs client/serveur
 
 - I2P (Invisible Internet Project) = is another overlay network that features a darknet whose sites are called "Eepsites"
@@ -33,9 +31,10 @@ pair à pair vs client/serveur
 
 
 ## II - Tor
+Internet et la crypotgraphie
 Tor est un réseau overlay qui comporte un darknet : ses hidden services
 
-### III - Dé-anonymisation
+## III - Dé-anonymisation
 les darknets rendent cette identification sinon impossible, du moins très difficile
 anonymat = cacher qui envoie le message
 confidentialité = cacher le contenu du message
@@ -44,3 +43,8 @@ confidentialité = cacher le contenu du message
 peut se targuer de nombreuses réussites dans son effort pour affaiblir les logiciels de chiffrement et
 d’anonymisation. Sa technique de prédilection est l’installation de portes dérobées dans les logiciels, ce qui lui
 permet de contourner les moyens de défense mis en place par l’internaute. 
+
+Programme Bullrun combinaison de superordinateurs, de ruses techniques, pour saper les bases de la confidentialité sur Internet, y compris les réseaux privés virtuels (VPN ) et les protocoles Secure Sockets Layer (SSL) et Transport Layer Security (TLS) largement utilisés.
+
+En 2010, un programme de contre-chiffrement du GCHQ, baptisé Edgehill
+https://arstechnica.com/information-technology/2014/01/how-the-nsa-may-have-put-a-backdoor-in-rsas-cryptography-a-technical-primer/
