@@ -1,12 +1,19 @@
-# I - 
+# I - Connaissances
 
-### I.1 Définitions
+## 1. Bien comprendre ce qu'est un Darknet
+
+### 1.1 Définitions
 
 |Internet|Darknet| Darkweb|
 |----|----|----|
 |réseau de réseaux sur lequel circulent des données à travers divers protocoles de communication| reseau overlay (réseau informatique bâti sur un autre réseau, en l'occurence sur internet) qui utilise des protocoles spécifiques intégrant des fonctions d'anonymat. Accessible uniquement avec un logiciel, des configurations ou une autorisation spécifiques| ensemble des sites d’un darknet donné|
 
-Darknets : 
+[Fonctionnement technique d'internet](https://github.com/iciamyplant/hack_trojan/tree/main/Reseaux)
+
+Réseau = Ensemble d'équipements reliés entre eux pour échanger des informations (Ex : Internet est un réseau informatique mondial accessible au public. Il contient lui-même des réseaux, c'est un réseau de réseaux, à commutation de paquets = technique utilisée pour le transfert de données informatiques)
+
+### 1.2 Exemples de darknets
+
 - Retroshare = can be run as a darknet by default to perform anonymous file transfers if DHT and Discovery features are disabled
 - service d’e-mail Mailpile
 - I2P = overlay network that features a darknet whose sites are called "Eepsites"
@@ -17,26 +24,54 @@ Darknets :
 - Tribler = can be run as a darknet for file-sharing
 - Tor = overlay network that features a darknet whose sites are called "hidden services"
 
-### I.2 Fonctionnement technique Internet et Darknets
+### 1.3 Réseau superposé (= overlay)
 
-Caractéristiques d'un darknet :
+superposition = méthode permettant de définir des couches d’abstraction de réseau par logiciel pour faire fonctionner plusieurs réseaux distincts et virtualisés au-dessus d’une couche physique
+
+Les réseaux Overlay = construire un réseau virtuel de couche 2 au-dessus d’un réseau de couche 3 : Les paquets du réseau sont encapsulés puis routés à travers l’infrastructure existante. Un des protocoles proposé est le VxLAN (Virtual eXtensible LAN) proposé dans le RFC 7348. Il encapsule les trames Ethernet dans un datagramme UDP.
+
+Un réseau IP utilisant des circuits virtuels ATM, eux-mêmes créés sur des liens SDH, eux-mêmes sur de la fibre noire, donne un exemple de réseau superposé.
+
 - repose sur l'infrastructure d'internet, et le protocole TCP/IP
 - protocole spécifique permettant l'instauration d'un réseau superposé
-- architecture décentralisée de type pair à pair
-- integration de processus d'anonymisation
 
-|Caractéristique|Internet|Darknet|
+### 1.4 Architecture pair à pair 
+
+|Caractéristique|Darknet|Internet|
 |----|----|----|
 |Architecture|pair à pair = P2P|client serveur|
-|Def architecture|modèle d'échange en réseau où chaque entité est à la fois client et serveur, les entités de ce système sont des "noeuds" (peut être centralisé : une partie de l'échange passe par un serveur central intermédiaire, ou completement décentralisé)|modèle d'échange en réseau centralisé où l'information stockée à un endroit bien précis. Le client envoie des requêtes, le serveur attend les requêtes des clients et y répond |
+|Def architecture|architecture décentralisée, modèle d'échange en réseau où chaque entité est à la fois client et serveur, les entités de ce système sont des "noeuds" (peut être centralisé : une partie de l'échange passe par un serveur central intermédiaire, ou completement décentralisé)|modèle d'échange en réseau centralisé où l'information stockée à un endroit bien précis. Le client envoie des requêtes, le serveur attend les requêtes des clients et y répond |
 |Protocole chiffrement|https||
+
+### 1.5 Processus d'anonymisation
+
+
+
+
+## 2. Fonctionnement de tor
+
+tor est disponible en source ouverte
+
+
+location-hidden services = hidden-services = onion services = exclusivement accessibles via Tor afin de dissimuler également l’identité des hébergeurs de contenu (serveurs)
+
+2.1 routage
+
+le principe du « routage en oignon » : 
+Le Transmission Control Protocol (TCP), à savoir le protocole standard régulant le transfert des données entre un client et un serveur sur Internet, requiert de connaître les adresses Internet Protocol (IP) du client comme du serveur pour établir la transmission entre eux. Le protocole de Tor permet d’établir la transmission entre un client utilisant Tor et un serveur classique sans que l’adresse IP du client soit divulguée au serveur : le client Tor transmet sa requête à un premier proxy Tor (le point d’entrée4), qui la transmet à un deuxième proxy ne connaissant lui-même que l’adresse du nœud précédent, et qui le transmet ensuite à un troisième et dernier proxy qui assumera la connexion avec le serveur (on parle de nœud de sortie). Ainsi, le serveur ne connaît que l’adresse IP du nœud de sortie, et les proxys Tor eux-mêmes ne connaissent que l’adresse du maillon qui les précède et de celui qui les suit immédiatement dans la chaîne de transmission
+
+2.2 chiffrement
+
+
+
+-----------------------------------------------
 
 
 Comment on assure la sécurisation de la connexion ? Garantie la connexion avec la personne, et que personne d'autre peut récupérer les informations qu'on s'échange
 
 Bases du chiffrement 
 
-chiffrmeent symétrique
+chiffrement symétrique
 algo standard : AES
 on chiffre une phrase a avec un mot de passe b = resultat c
 si je déchiffre c avec b je retombe sur a 
@@ -89,3 +124,6 @@ https://arstechnica.com/information-technology/2014/01/how-the-nsa-may-have-put-
 Linus Torvalds approché par le gouvernement des US pour installer backdoors dans Linux
 
 qui valide, diffuse les standards de sécurité de cryptographie
+
+
+# II - Technique
