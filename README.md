@@ -1,6 +1,6 @@
 # I - Connaissances
 
-## 1. Bien comprendre ce qu'est un Darknet
+## 1. Darknet
 
 Réseau = Ensemble d'équipements reliés entre eux pour échanger des informations (Ex : Internet est un réseau informatique mondial accessible au public. Il contient lui-même des réseaux, c'est un réseau de réseaux, à commutation de paquets = technique utilisée pour le transfert de données informatiques) [Fonctionnement technique d'internet](https://github.com/iciamyplant/hack_trojan/tree/main/Reseaux)
 
@@ -38,21 +38,52 @@ Explication du SDN :
 
 
 
-### 1.5 Processus d'anonymisation
+## 2. TOR
+
+Tor est un réseau superposé distribué reposant sur un protocole réseau (ensemble établi de règles qui déterminent comment les données sont transmises entre différents appareils dans le même réseau : comme HTTP ou FTP, ...) qui permet la communication entre les hôtes et possède diverses propriétés. D'où, Tor fonctionne au niveau de la couche application comme HTTP. Chaque protocole est conçu avec certaines propriétés. Voilà les propriétés du protocole de Tor :
+- il est censé fonctionner comme un protocole (= de superposition de réseau. Cela signifie qu'il est censé former un réseau de superposition au-dessus du trafic réseau existant qui peut utiliser n'importe quel protocole de couche d'application en dessous (comme HTTP, FTP, SSH, etc.)
+- il fonctionne sur un réseau de nœuds et crée des circuits virtuels à travers ce réseau tor qui permettent le routage du trafic à travers les circuits virtuels
+- grâce à ses circuits virtuels et à l'utilisation de protocoles cryptographiques, il aide à créer des canaux sécurisés de transmission d'informations qui confèrent au réseau tor l'anonymat. Par conséquent, il est conçu pour le transfert anonyme de données entre le client et l'hôte final
+
+Tor est également un logiciel libre de type navigateur, basé sur Firefox. Ce logiciel permet d'accéder au www, ainsi qu'à des hidden services (hidden-services = location-hidden services = onion services = sites exclusivement accessibles via Tor, qui permettent de dissimuler l’identité des hébergeurs de contenu (serveurs), en plus de l'identité de l'utilisateur.
+
+Tor implique 3 parties :
+- Le client Tor = le proxy oignon
+- Le Tor Router = Onion Router
+- L'hôte = destination finale
+  + Le message Tor = Tor Cell
+
+ 
+### 2.1 Oinion Proxy
+
+C'est le composant qui s'exécute dans le cadre du navigateur Tor. Il permet à tout client de se connecter au dark web et d'accéder au réseau superposé exploité par Tor. Le composant Proxy prend votre vanilla HTTP traffic (par exemple) et l'enveloppe dans le trafic Tor et l'envoie sur le réseau Tor pour une communication anonyme. Pour vous, en tant que client, cela ressemble à une navigation normale.
+
+La raison pour laquelle il est appelé proxy est qu'il se comporte comme un proxy pour votre communication de trafic Web normale. Il s'agit en fait d'un proxy SOCKS et fonctionne au niveau de la couche SOCKS.
+
+Le proxy oignon est également celui qui construit un circuit virtuel pour la communication, configure le circuit et démarre la transmission des données dans les deux sens. Ce circuit virtuel est créé sur le réseau Tor en utilisant le composant suivant dont nous parlerons qui sont les routeurs Tor/onion routers.
+
+### 2.2 Oinion Routers
+
+Cette partie du protocole tor est le cœur du réseau superposé que Tor crée pour la communication. Lorsque vous téléchargez le navigateur Tor, vous avez la possibilité de vous configurer en tant que nœud Tor, qui est précisément le routeur oignon. Le routeur oignon est le processus qui fait que votre machine/hôte agit comme un routeur dans le réseau tor. Si vous avez choisi d'exécuter votre machine en tant que nœud Tor, vous autorisez Tor à utiliser votre machine dans le cadre du réseau de superposition créé par Tor.
+
+Ce que font les routeurs, c'est participer à la création de circuits virtuels qu'un proxy onion quelque part dans le monde a créé. Et ensuite acheminer le trafic à travers eux-mêmes dans les circuits dont ils font partie. Un routeur Onion peut faire partie de plusieurs circuits, il maintient une sorte de table de routage qui lui permet d'acheminer le trafic via les circuits corrects.
+
+Par conséquent, vous pouvez être un proxy ainsi qu'un routeur à tout moment. En outre, il existe un type spécial de nœud appelé nœud de sortie, qui est le dernier nœud du circuit virtuel. Ce nœud est spécial dans le sens où vous pouvez choisir de ne pas être le nœud de sortie car il est directement exposé à Internet extérieur et a de sérieuses implications en matière de sécurité. (Par exemple, si certains clients anonymes achètent des médicaments sur le réseau Tor, il semblera que le nœud de sortie fasse les demandes. Alors méfiez-vous avant de choisir d'être un nœud de sortie)
+
+### 2.3 L'hôte
+
+Hôte réel auquel le client souhaite se connecter. Il peut s'agir d'un simple hôte Internet ou d'un service caché.
 
 
 
 
-## 2. Fonctionnement de tor
-
-Tor est à la fois un réseau de surcouche et un logiciel libre de type navigateur, basé sur Firefox. Ce logiciel permet d'accéder au www, ainsi qu'à des hidden services (hidden-services = location-hidden services = onion services = sites exclusivement accessibles via Tor, qui permettent de dissimuler l’identité des hébergeurs de contenu (serveurs), en plus de l'identité de l'utilisateur.
 
 
+Connaître maintenant les principaux composants permet de comprendre comment le protocole fonctionne réellement et comment il crée un canal/circuit anonyme sécurisé à l'aide de la cryptographie et d'autres outils.
 
-Les nœuds au sein de Tor peuvent être de plusieurs types :
-— Les Onion Router (OR, aussi appelés relais) : Ce sont les nœuds qui constituent les circuits utilisés au travers du réseau, ils sont le cœur fonctionnel de Tor, ce sont eux qui font transiter les paquets au travers du nuage Tor.
-— Les Nœuds clients (aussi appelés onions proxies, OP) : Ce sont les nœuds qui se connectent au réseau, ou plus précisément les clients logiciels Tor
-— Les Directory Servers (aussi appelés authority Servers) : Il s’agit des serveurs qui référencent les OR connus, ils sont les annuaires du réseau
+
+
+
 
 ### 2.1 Routage
 
@@ -153,7 +184,7 @@ les paquets reçus sur une interface réseau.
 
 Sources
 [Un « Deep / dark web » ? Les métaphores de la profondeur et de l’ombre sur le réseau Tor](https://journals.openedition.org/netcom/3134)
-
+[Explications techniques](https://ieee.nitk.ac.in/virtual-expo/tor/)
 
 |Darknets | Description|
 |----|----|
