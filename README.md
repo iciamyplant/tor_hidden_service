@@ -6,7 +6,7 @@ Réseau = Ensemble d'équipements reliés entre eux pour échanger des informati
 
 |Internet|Darknet| Darkweb|
 |----|----|----|
-|réseau de réseaux sur lequel circulent des données à travers divers protocoles de communication| reseau overlay (réseau informatique bâti sur un autre réseau, en l'occurence sur internet) qui utilise des protocoles spécifiques intégrant des fonctions d'anonymat. Accessible uniquement avec un logiciel, des configurations ou une autorisation spécifiques| ensemble des sites d’un darknet donné|
+|réseau de réseaux sur lequel circulent des données à travers divers protocoles de communication| reseau overlay (réseau informatique bâti sur un autre réseau), en l'occurence sur l'infrastructure d'internet et le protocole TCP/IP, et qui utilise des protocoles spécifiques intégrant des fonctions d'anonymat. Accessible uniquement avec un logiciel, des configurations ou une autorisation spécifiques| ensemble des sites d’un darknet donné|
 
 
 Réseau superposé (= de surcouche = overlay) : c'est une couche virtuelle au-dessus de l'infrastructure physique d'un réseau. Cela peut être aussi simple qu'un réseau local virtuel (VLAN), mais fait généralement référence à des couches virtuelles plus complexes d'un réseau défini par logiciel (SDN) ou d'un réseau étendu défini par logiciel (SD-WAN).
@@ -25,22 +25,17 @@ Explication du SDN :
 - Dans les SDN, le plan de contrôle est placé dans un contrôleur centralisé qui a une visibilité sur l’ensemble du réseau. Au lieu que chaque équipement s'auto-gère avec une petite partie intelligente (plan de contrôle), je centralise l'intelligence. Au travers d'une interface digitale qui permet de configurer les équipements à distance, je peux même automatiser certaines tâches dessus
 
 
-### 1.3
 
-
-
-- repose sur l'infrastructure d'internet, et le protocole TCP/IP
-- protocole spécifique permettant l'instauration d'un réseau superposé
-
-
-
-### 1.4 Architecture pair à pair 
 
 |Caractéristique|Darknet|Internet|
 |----|----|----|
 |Architecture|pair à pair = P2P|client serveur|
 |Def architecture|architecture décentralisée, modèle d'échange en réseau où chaque entité est à la fois client et serveur, les entités de ce système sont des "noeuds" (peut être centralisé : une partie de l'échange passe par un serveur central intermédiaire, ou completement décentralisé)|modèle d'échange en réseau centralisé où l'information stockée à un endroit bien précis. Le client envoie des requêtes, le serveur attend les requêtes des clients et y répond |
 |Protocole chiffrement|https||
+
+
+
+
 
 
 ### 1.5 Processus d'anonymisation
