@@ -8,30 +8,20 @@ Réseau = Ensemble d'équipements reliés entre eux pour échanger des informati
 |----|----|----|
 |réseau de réseaux sur lequel circulent des données à travers divers protocoles de communication| reseau overlay (réseau informatique bâti sur un autre réseau, en l'occurence sur internet) qui utilise des protocoles spécifiques intégrant des fonctions d'anonymat. Accessible uniquement avec un logiciel, des configurations ou une autorisation spécifiques| ensemble des sites d’un darknet donné|
 
-|Darknets | Description|
-|----|----|
-|Retroshare|can be run as a darknet by default to perform anonymous file transfers if DHT and Discovery features are disabled
-|service d’e-mail Mailpile||
-|I2P|overlay network that features a darknet whose sites are called "Eepsites"|
-| Freenet| popular darknet by default|
-|GNUnet|is a darknet if the "F2F (network) topology" option is enabled|
-|Syndie|is software used to publish distributed forums over the anonymous networks of I2P, Tor and Freenet|
-|OneSwarm|can be run as a darknet for friend-to-friend file-sharing|
-| Tribler|can be run as a darknet for file-sharing|
-|Tor|overlay network that features a darknet whose sites are called "hidden services"|
+
+Réseau superposé (= de surcouche = overlay) : c'est une couche virtuelle au-dessus de l'infrastructure physique d'un réseau. Cela peut être aussi simple qu'un réseau local virtuel (VLAN), mais fait généralement référence à des couches virtuelles plus complexes d'un réseau défini par logiciel (SDN) ou d'un réseau étendu défini par logiciel (SD-WAN).
+
+LAN = local area network, équipements terminaux qui s'échangent des données dans une zone restrainte, dans un domaine de broadcast
+Domaine brodacast (= domaine de diffusion) = quand un périphérique envoie des broadcast sur le LAN, tous ceux du réseau les reçoivent
+
+VLAN = virtual LAN, 
+commutateur (= switch) = matériel, permet de connnecter les machines entre elles sur un réseau local
+
 
 
 ### 1.3 Réseau superposé (= de surcouche = overlay)
 
-internet vs darknet = Les différences de protocole de communication utilisés au niveau de la couche transport créent donc la discontinuité entre ces deux types d’espaces
 
-C’est plus particulièrement l’absence de recours au protocole DNS qui distingue les location-hidden services du reste d’Internet en termes d’accessibilité
-
-superposition = méthode permettant de définir des couches d’abstraction de réseau par logiciel pour faire fonctionner plusieurs réseaux distincts et virtualisés au-dessus d’une couche physique
-
-Les réseaux Overlay = construire un réseau virtuel de couche 2 au-dessus d’un réseau de couche 3 : Les paquets du réseau sont encapsulés puis routés à travers l’infrastructure existante. Un des protocoles proposé est le VxLAN (Virtual eXtensible LAN) proposé dans le RFC 7348. Il encapsule les trames Ethernet dans un datagramme UDP.
-
-Un réseau IP utilisant des circuits virtuels ATM, eux-mêmes créés sur des liens SDH, eux-mêmes sur de la fibre noire, donne un exemple de réseau superposé.
 
 - repose sur l'infrastructure d'internet, et le protocole TCP/IP
 - protocole spécifique permettant l'instauration d'un réseau superposé
@@ -52,12 +42,12 @@ Un réseau IP utilisant des circuits virtuels ATM, eux-mêmes créés sur des li
 
 ## 2. Fonctionnement de tor
 
-Tor est un réseau de surcouche et un logiciel libre de type navigateur, basé sur Firefox. Ce logiciel permet d'accéder au www, ainsi qu'à des hidden services (hidden-services = location-hidden services = onion services = sites exclusivement accessibles via Tor, qui permettent de dissimuler l’identité des hébergeurs de contenu (serveurs), en plus de l'utilisateur.
+Tor est un réseau de surcouche et un logiciel libre de type navigateur, basé sur Firefox. Ce logiciel permet d'accéder au www, ainsi qu'à des hidden services (hidden-services = location-hidden services = onion services = sites exclusivement accessibles via Tor, qui permettent de dissimuler l’identité des hébergeurs de contenu (serveurs), en plus de l'identité de l'utilisateur.
 
 ### 2.1 Routage
 
 des milliers de serveurs mis à disposition par des bénévoles que l’on appelle des nœuds et qui agissent comme des relais pour permettre
-l’anonymisation des connexions. Askip la moitié son a la nsa : vrai ou pas ?
+l’anonymisation des connexions. Askip la moitié sont a la nsa : vrai ou pas ?
 
 
 
@@ -65,6 +55,8 @@ Tor repose sur l’utilisation de SOCKS, qui est un protocole standard qui perme
 
 le principe du « routage en oignon » : 
 Le Transmission Control Protocol (TCP), à savoir le protocole standard régulant le transfert des données entre un client et un serveur sur Internet, requiert de connaître les adresses Internet Protocol (IP) du client comme du serveur pour établir la transmission entre eux. Le protocole de Tor permet d’établir la transmission entre un client utilisant Tor et un serveur classique sans que l’adresse IP du client soit divulguée au serveur : le client Tor transmet sa requête à un premier proxy Tor (le point d’entrée4), qui la transmet à un deuxième proxy ne connaissant lui-même que l’adresse du nœud précédent, et qui le transmet ensuite à un troisième et dernier proxy qui assumera la connexion avec le serveur (on parle de nœud de sortie). Ainsi, le serveur ne connaît que l’adresse IP du nœud de sortie, et les proxys Tor eux-mêmes ne connaissent que l’adresse du maillon qui les précède et de celui qui les suit immédiatement dans la chaîne de transmission
+
+un noeud tor = peut être un pc personnel, un serveur ou meme un telephone portable. Conditions : être connecté à internet, et 
 
 2.2 chiffrement
 2.3 
@@ -151,3 +143,16 @@ les paquets reçus sur une interface réseau.
 
 Sources
 [Un « Deep / dark web » ? Les métaphores de la profondeur et de l’ombre sur le réseau Tor](https://journals.openedition.org/netcom/3134)
+
+
+|Darknets | Description|
+|----|----|
+|Retroshare|can be run as a darknet by default to perform anonymous file transfers if DHT and Discovery features are disabled
+|service d’e-mail Mailpile||
+|I2P|overlay network that features a darknet whose sites are called "Eepsites"|
+| Freenet| popular darknet by default|
+|GNUnet|is a darknet if the "F2F (network) topology" option is enabled|
+|Syndie|is software used to publish distributed forums over the anonymous networks of I2P, Tor and Freenet|
+|OneSwarm|can be run as a darknet for friend-to-friend file-sharing|
+| Tribler|can be run as a darknet for file-sharing|
+|Tor|overlay network that features a darknet whose sites are called "hidden services"|
