@@ -11,15 +11,15 @@ Réseau = Ensemble d'équipements reliés entre eux pour échanger des informati
 |Darknets | Description|
 |----|----|
 |Retroshare|can be run as a darknet by default to perform anonymous file transfers if DHT and Discovery features are disabled
+|service d’e-mail Mailpile||
+|I2P|overlay network that features a darknet whose sites are called "Eepsites"|
+| Freenet| popular darknet by default|
+|GNUnet|is a darknet if the "F2F (network) topology" option is enabled|
+|Syndie|is software used to publish distributed forums over the anonymous networks of I2P, Tor and Freenet|
+|OneSwarm|can be run as a darknet for friend-to-friend file-sharing|
+| Tribler|can be run as a darknet for file-sharing|
+|Tor|overlay network that features a darknet whose sites are called "hidden services"|
 
-- service d’e-mail Mailpile
-- I2P = overlay network that features a darknet whose sites are called "Eepsites"
-- Freenet = popular darknet by default
-- GNUnet = is a darknet if the "F2F (network) topology" option is enabled
-- Syndie = is software used to publish distributed forums over the anonymous networks of I2P, Tor and Freenet
-- OneSwarm = can be run as a darknet for friend-to-friend file-sharing
-- Tribler = can be run as a darknet for file-sharing
-- Tor = overlay network that features a darknet whose sites are called "hidden services"
 
 ### 1.3 Réseau superposé (= de surcouche = overlay)
 
