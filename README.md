@@ -53,8 +53,9 @@ Tor implique 3 parties :
 - L'hôte = destination finale
   + Le message Tor = Tor Cell
 
+### 2.1 Onion Proxy, Routers and hots
  
-### 2.1 Oinion Proxy
+#### Oinion Proxy
 
 C'est le composant qui s'exécute dans le cadre du navigateur Tor. Il permet à tout client de se connecter au dark web et d'accéder au réseau superposé exploité par Tor. Le composant Proxy prend votre vanilla HTTP traffic (par exemple) et l'enveloppe dans le trafic Tor et l'envoie sur le réseau Tor pour une communication anonyme. Pour vous, en tant que client, cela ressemble à une navigation normale.
 
@@ -62,7 +63,7 @@ La raison pour laquelle il est appelé proxy est qu'il se comporte comme un prox
 
 Le proxy oignon est également celui qui construit un circuit virtuel pour la communication, configure le circuit et démarre la transmission des données dans les deux sens. Ce circuit virtuel est créé sur le réseau Tor en utilisant le composant suivant dont nous parlerons qui sont les routeurs Tor/onion routers.
 
-### 2.2 Oinion Routers
+#### Oinion Routers
 
 Cette partie du protocole tor est le cœur du réseau superposé que Tor crée pour la communication. Lorsque vous téléchargez le navigateur Tor, vous avez la possibilité de vous configurer en tant que nœud Tor, qui est précisément le routeur oignon. Le routeur oignon est le processus qui fait que votre machine/hôte agit comme un routeur dans le réseau tor. Si vous avez choisi d'exécuter votre machine en tant que nœud Tor, vous autorisez Tor à utiliser votre machine dans le cadre du réseau de superposition créé par Tor.
 
@@ -70,16 +71,14 @@ Ce que font les routeurs, c'est participer à la création de circuits virtuels 
 
 Par conséquent, vous pouvez être un proxy ainsi qu'un routeur à tout moment. En outre, il existe un type spécial de nœud appelé nœud de sortie, qui est le dernier nœud du circuit virtuel. Ce nœud est spécial dans le sens où vous pouvez choisir de ne pas être le nœud de sortie car il est directement exposé à Internet extérieur et a de sérieuses implications en matière de sécurité. (Par exemple, si certains clients anonymes achètent des médicaments sur le réseau Tor, il semblera que le nœud de sortie fasse les demandes. Alors méfiez-vous avant de choisir d'être un nœud de sortie)
 
-### 2.3 L'hôte
+#### L'hôte
 
 Hôte réel auquel le client souhaite se connecter. Il peut s'agir d'un simple hôte Internet ou d'un service caché.
 
+### 2.2 Fonctionnement du protocole
 
+Le protocole crée un circuit anonyme sécurisé à l'aide de la cryptographie et d'autres outils.
 
-
-
-
-Connaître maintenant les principaux composants permet de comprendre comment le protocole fonctionne réellement et comment il crée un canal/circuit anonyme sécurisé à l'aide de la cryptographie et d'autres outils.
 
 
 
@@ -87,8 +86,7 @@ Connaître maintenant les principaux composants permet de comprendre comment le 
 
 ### 2.1 Routage
 
-des milliers de serveurs mis à disposition par des bénévoles que l’on appelle des nœuds et qui agissent comme des relais pour permettre
-l’anonymisation des connexions. Askip la moitié sont a la nsa : vrai ou pas ?
+Askip la moitié des noeuds sont a la nsa : vrai ou pas ?
 
 
 
