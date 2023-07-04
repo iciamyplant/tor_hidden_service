@@ -11,20 +11,28 @@ Réseau = Ensemble d'équipements reliés entre eux pour échanger des informati
 
 Réseau superposé (= de surcouche = overlay) : c'est une couche virtuelle au-dessus de l'infrastructure physique d'un réseau. Cela peut être aussi simple qu'un réseau local virtuel (VLAN), mais fait généralement référence à des couches virtuelles plus complexes d'un réseau défini par logiciel (SDN) ou d'un réseau étendu défini par logiciel (SD-WAN).
 
-LAN = local area network, équipements terminaux qui s'échangent des données dans une zone restrainte, dans un domaine de broadcast
-Domaine brodacast (= domaine de diffusion) = quand un périphérique envoie des broadcast sur le LAN, tous ceux du réseau les reçoivent
+Explication du VLAN :
+- LAN = local area network, équipements terminaux qui s'échangent des données dans une zone restrainte, dans un domaine de broadcast
+- Domaine brodacast (= domaine de diffusion) = quand un périphérique envoie des broadcasts (=messages)  sur le LAN, tous les périphériques du réseau les reçoivent
+- VLAN = virtual LAN. Grâce à un commutateur, il est possible de séparer les périphériques en plusieurs domaines de broadcasts, pour que chaque préiphérique ne recoivent que les broadcasts de son domaine de broadcast. Alors, chaque domaine est un VLAN. Tous les périphériques partagent la même infrastructure, ou le même switch, mais ils agissent comme des réseaux indépendants.
+- Commutateur (= switch) = matériel, permet de connnecter les machines entre elles sur un réseau local
 
-VLAN = virtual LAN, 
-commutateur (= switch) = matériel, permet de connnecter les machines entre elles sur un réseau local
+Explication du SDN : 
+- SDN = software-defined networking
+- Les commutateurs et les routeurs programment leurs tables de forwarding localement, ce qui signifie que les périphériques réseau prennent leurs propres décisions en interne sur la meilleure façon d'aiguiller le trafic. Pour fonctionner ensemble, tous les équipements du réseau doivent suivre les règles définies par les standards. Cela laisse peu de place à la créativité ou à des exigences métiers inhabituelles
+- plan de contrôle : comment un équipement forwarde le trafic (partie + intelligente de l'équipement)
+- plan de données : la partie des commutateurs et routeurs qui assure effectivement le mouvement des données (partie + materielle)
+- Dans les SDN, le plan de contrôle est placé dans un contrôleur centralisé qui a une visibilité sur l’ensemble du réseau. Au lieu que chaque équipement s'auto-gère avec une petite partie intelligente (plan de contrôle), je centralise l'intelligence. Au travers d'une interface digitale qui permet de configurer les équipements à distance, je peux même automatiser certaines tâches dessus
 
 
-
-### 1.3 Réseau superposé (= de surcouche = overlay)
+### 1.3
 
 
 
 - repose sur l'infrastructure d'internet, et le protocole TCP/IP
 - protocole spécifique permettant l'instauration d'un réseau superposé
+
+
 
 ### 1.4 Architecture pair à pair 
 
@@ -42,7 +50,14 @@ commutateur (= switch) = matériel, permet de connnecter les machines entre elle
 
 ## 2. Fonctionnement de tor
 
-Tor est un réseau de surcouche et un logiciel libre de type navigateur, basé sur Firefox. Ce logiciel permet d'accéder au www, ainsi qu'à des hidden services (hidden-services = location-hidden services = onion services = sites exclusivement accessibles via Tor, qui permettent de dissimuler l’identité des hébergeurs de contenu (serveurs), en plus de l'identité de l'utilisateur.
+Tor est à la fois un réseau de surcouche et un logiciel libre de type navigateur, basé sur Firefox. Ce logiciel permet d'accéder au www, ainsi qu'à des hidden services (hidden-services = location-hidden services = onion services = sites exclusivement accessibles via Tor, qui permettent de dissimuler l’identité des hébergeurs de contenu (serveurs), en plus de l'identité de l'utilisateur.
+
+
+
+Les nœuds au sein de Tor peuvent être de plusieurs types :
+— Les Onion Router (OR, aussi appelés relais) : Ce sont les nœuds qui constituent les circuits utilisés au travers du réseau, ils sont le cœur fonctionnel de Tor, ce sont eux qui font transiter les paquets au travers du nuage Tor.
+— Les Nœuds clients (aussi appelés onions proxies, OP) : Ce sont les nœuds qui se connectent au réseau, ou plus précisément les clients logiciels Tor
+— Les Directory Servers (aussi appelés authority Servers) : Il s’agit des serveurs qui référencent les OR connus, ils sont les annuaires du réseau
 
 ### 2.1 Routage
 
